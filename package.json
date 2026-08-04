@@ -1,0 +1,29 @@
+{
+  "name": "lark-cursor-bridge",
+  "version": "0.1.0",
+  "description": "Bridge Feishu/Lark chats to a local Cursor agent via the Cursor SDK",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "dev": "tsc -p tsconfig.json && node dist/index.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "bridge:status": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/status-bridge.ps1",
+    "bridge:stop": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/stop-bridge.ps1",
+    "bridge:restart": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/restart-bridge.ps1"
+  },
+  "dependencies": {
+    "@cursor/sdk": "^1.0.26",
+    "@larksuite/channel": "^0.4.1",
+    "dotenv": "^17.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.2",
+    "typescript": "^7.0.2"
+  }
+}
